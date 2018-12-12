@@ -33,7 +33,7 @@ createExchange(token: address): address
 
 {% code-tabs-item title="Web3" %}
 ```swift
-factoryContract.methods.initializeFactory(token: String).send()
+factoryContract.methods.createExchange(token: String).send()
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
