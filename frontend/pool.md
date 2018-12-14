@@ -2,7 +2,7 @@
 
 ## Formalized Model
 
-Uniswap liquidity pools are autonomous and use the Constant Product Market Maker \($$x * y = k$$\). This model was formalized and the smart contract implementation passed a lightweight formal verification.  
+Uniswap liquidity pools are autonomous and use the Constant Product Market Maker \($$x * y = k$$\). This model was formalized and the smart contract implementation passed a lightweight formal verification.
 
 * [Formalized Specification](https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf)
 * [Lightweight Verification](https://github.com/runtimeverification/verified-smart-contracts/tree/uniswap/uniswap/results) 
@@ -19,7 +19,7 @@ Once an exchange is created the address can be retrieved with [`getExchange`](co
 
 ## Exchange Reserves
 
-Each exchange contract holds a liquidity reserve of ETH and its associated ERC20 token.  
+Each exchange contract holds a liquidity reserve of ETH and its associated ERC20 token.
 
 ### ETH Reserve
 
@@ -63,7 +63,7 @@ Since liquidity providers must deposit at the current exchange rate, the Uniswap
 
 Liquidity tokens are minted to track the relative proportion of total reserves that each liquidity provider has contributed. `min_liquidity` is used in combination with `max_tokens` and `ethAmount` to bound the rate at which liquidity tokens are minted. For the first liquidity provider, `min_liquidity` does not do anything and can be set to 0. 
 
-Transaction `deadline` is used to set a time after which a transaction can no longer be executed. This limits the "free option" problem, where Ethereum miners can hold signed transactions and execute them based off market movements.  
+Transaction `deadline` is used to set a time after which a transaction can no longer be executed. This limits the "free option" problem, where Ethereum miners can hold signed transactions and execute them based on market movements.
 
 ## Remove Liquidity 
 
