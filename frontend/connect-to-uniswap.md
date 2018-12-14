@@ -2,13 +2,13 @@
 
 ## Web3
 
-The Uniswap smart contracts exist on the Ethereum blockchain. Use [web3.js](https://www.npmjs.com/package/web3) to connect your website to the Ethereum. Users will need a web3 enabled browser. On desktop this  means using the [MetaMask](https://metamask.io/) extension \(Chrome, Firefox, Opera\) or using [Brave Browser](https://brave.com/). Web3 compatible mobile browsers include [Trust Wallet ](https://trustwalletapp.com/)and [Coinbase Wallet](https://wallet.coinbase.com/).  Read the [web3 docs](https://web3js.readthedocs.io/en/1.0/) to learn more.
+The Uniswap smart contracts exist on the Ethereum blockchain. Use [web3.js](https://www.npmjs.com/package/web3) to connect your website to the Ethereum. Users will need a web3 enabled browser. On desktop this means using the [MetaMask](https://metamask.io/) extension \(Chrome, Firefox, Opera\) or using [Brave Browser](https://brave.com/). Web3 compatible mobile browsers include [Trust Wallet ](https://trustwalletapp.com/)and [Coinbase Wallet](https://wallet.coinbase.com/). Read the [web3 docs](https://web3js.readthedocs.io/en/1.0/) to learn more.
 
 ## Factory Contract 
 
 The Uniswap [factory contract](https://github.com/Uniswap/contracts-vyper/blob/master/contracts/uniswap_factory.vy) can be used to create exchange contracts for any ERC20 token that does not already have one. It also functions as a registry of ERC20 tokens that have been added to the system, and the exchange with which they are associated.
 
-The factory contract can be instantiated using the factory address and ABI:  
+The factory contract can be instantiated using the factory address and ABI:
 
 ### \*\*\*\*[**Factory Address**](https://rinkeby.etherscan.io/address/0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36) ****
 
