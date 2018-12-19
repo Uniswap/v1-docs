@@ -39,7 +39,7 @@ For buy orders \(exact output\), the cost \(input\) is calculated:
 
 ```javascript
 // Buy ERC20 with ETH
-outputAmount = userInputEthValue
+inputAmount = userInputEthValue
 inputReserve = web3.eth.getBalance(exchangeAddress)
 outputReserve = tokenContract.methods.balanceOf(exchangeAddress)
 
