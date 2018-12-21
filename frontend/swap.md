@@ -51,7 +51,7 @@ outputReserve = web3.eth.getBalance(exchangeAddress)
 // Cost
 numerator = outputAmount * inputReserve * 1000
 denominator = (outputReserve - outputAmount) * 997
-inputAmount = numerator / denominator + 1
+inputAmount = numerator / (denominator + 1)
 ```
 
 ### Liquidity Provider Fee
