@@ -97,7 +97,7 @@ outputAmountA = numeratorA / denominatorA
 // ETH to TokenB conversion 
 inputAmountB = outputAmountA    
 inputReserveB = web3.eth.getBalance(exchangeAddressB)
-outputReserveB = tokenContract.methods.balanceOf(exchangeAddressB)
+outputReserveB = tokenContractB.methods.balanceOf(exchangeAddressB)
 
 numeratorB = inputAmountB * outputReserveB * 997
 denominatorB = inputReserveB * 1000 + inputAmountB * 997
