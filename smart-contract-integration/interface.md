@@ -4,6 +4,7 @@
 
 {% code-tabs %}
 {% code-tabs-item title="UniswapFactoryInterface.sol" %}
+
 ```javascript
 // Solidity Interface
 
@@ -21,18 +22,20 @@ contract UniswapFactoryInterface {
     function initializeFactory(address template) external;
 }
 ```
+
 {% endcode-tabs-item %}
 
 {% code-tabs-item title="uniswap\_factory\_interface.vy" %}
+
 ```python
-# Vyper Interface 
+# Vyper Interface
 
 contract UniswapFactoryInterface():
     # Create Exchange
     def createExchange(token: address) -> address: modifying
     # Public Variables
     def exchangeTemplate() -> address: constant
-    def tokenCount() -> uint256: constant    
+    def tokenCount() -> uint256: constant
     # Get Exchange and Token Info
     def getExchange(token_addr: address) -> address: constant
     def getToken(exchange: address) -> address: constant
@@ -40,6 +43,7 @@ contract UniswapFactoryInterface():
     # Initialize Factory
     def initializeFactory(template: address): modifying
 ```
+
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
@@ -47,6 +51,7 @@ contract UniswapFactoryInterface():
 
 {% code-tabs %}
 {% code-tabs-item title="UniswapExchangeInterface.sol" %}
+
 ```javascript
 // Solidity Interface
 
@@ -97,9 +102,11 @@ contract UniswapExchangeInterface {
     function setup(address token_addr) external;
 }
 ```
+
 {% endcode-tabs-item %}
 
 {% code-tabs-item title="uniswap\_exchange\_interface.vy" %}
+
 ```python
 # Vyper Interface
 
@@ -110,7 +117,7 @@ contract UniswapExchangeInterface():
     # Providing Liquidity
     def addLiquidity(min_liquidity: uint256, max_tokens: uint256, deadline: timestamp) -> uint256: modifying
     def removeLiquidity(amount: uint256, min_eth: uint256(wei), min_tokens: uint256, deadline: timestamp) -> (uint256(wei), uint256): modifying
-    # Trading 
+    # Trading
     def ethToTokenSwapInput(min_tokens: uint256, deadline: timestamp) -> uint256: modifying
     def ethToTokenTransferInput(min_tokens: uint256, deadline: timestamp, recipient: address) -> uint256: modifying
     def ethToTokenSwapOutput(tokens_bought: uint256, deadline: timestamp) -> uint256(wei): modifying
@@ -138,9 +145,10 @@ contract UniswapExchangeInterface():
     def transfer(_to : address, _value : uint256) -> bool: modifying
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: modifying
     def approve(_spender : address, _value : uint256) -> bool: modifying
-    # Setup 
+    # Setup
     def setup(token_addr: address): modifying
 ```
+
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
@@ -148,20 +156,30 @@ contract UniswapExchangeInterface():
 
 {% code-tabs %}
 {% code-tabs-item title="TokenInterface.sol" %}
+
 ```javascript
-def balanceOf() -> addr
-    function allowance(address _owner, address _spender) external view returns (uint256);
-    function transfer(address _to, uint256 _value) external returns (bool);
-    function transferFrom(address _from, address _to, uint256 _value) external returns (bool);
-    function approve(address _spender, uint256 _value) external returns (bool);
+// https://theethereum.wiki/w/index.php/ERC20_Token_Standard
+contract ERC20Interface {
+    function totalSupply() public view returns (uint);
+    function balanceOf(address tokenOwner) public view returns (uint balance);
+    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
+    function transfer(address to, uint tokens) public returns (bool success);
+    function approve(address spender, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
     // optional
     function name() external view returns (string);
     function symbol() external view returns (string);
     function decimals() external view returns (string);
+
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+}
 ```
+
 {% endcode-tabs-item %}
 
 {% code-tabs-item title="token\_interface.vy" %}
+
 ```python
 def balanceOf() -> addr
     def allowance(_owner : address, _spender : address) -> uint256: constant
@@ -173,6 +191,6 @@ def balanceOf() -> addr
     def symbol() -> bytes32: constant
     def decimals() -> uint256: constant
 ```
+
 {% endcode-tabs-item %}
 {% endcode-tabs %}
-
