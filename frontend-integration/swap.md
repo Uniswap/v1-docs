@@ -120,7 +120,7 @@ const denominatorB = (outputReserveB - outputAmountB) * 997
 const inputAmountB = numeratorB / denominatorB + 1
 
 // Buy ETH with TokenA
-const outputAmountA = userInputEthValue
+const outputAmountA = inputAmountB
 const inputReserveA = tokenContractA.methods.balanceOf(exchangeAddressA).call()
 const outputReserveA = web3.eth.getBalance(exchangeAddressA)
 
