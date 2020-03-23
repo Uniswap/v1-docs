@@ -106,7 +106,7 @@ getTokenWithId(token_id: uint256): address
 
 {% tab title="Web3" %}
 ```javascript
-factoryContract.methods.getToken(exchange).call()
+factoryContract.methods.getTokenWithId(token_id).call()
 ```
 {% endtab %}
 {% endtabs %}
